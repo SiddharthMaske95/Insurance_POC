@@ -1,0 +1,13 @@
+package com.myspace.insurancepolicyrulestoringresponse;
+
+import java.lang.Number;
+
+rule "Country Fail"
+	dialect "mvel"
+	when
+		$T : Insurance( country excludes ( countryinput ) )
+	then
+		modify( $T ) {
+				setStatusCountry( "Fail" )
+		}
+end

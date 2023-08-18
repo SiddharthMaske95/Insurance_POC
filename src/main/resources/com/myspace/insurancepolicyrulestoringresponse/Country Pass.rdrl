@@ -1,0 +1,13 @@
+package com.myspace.insurancepolicyrulestoringresponse;
+
+import java.lang.Number;
+
+rule "Country Pass"
+	dialect "mvel"
+	when
+		$T : Insurance( country contains ( countryinput ) )
+	then
+		modify( $T ) {
+				setStatusCountry( "Pass" )
+		}
+end
